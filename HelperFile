@@ -1,0 +1,48 @@
+1) Spring GateWay - To redirect the request based on routeing configuration and filter used of callBack method
+2) Eureka Server - Used to Registered the service and in yaml file we need to set registered with eureka false because we want this service as a server.
+3) Eureka Client - Used to lookup the service registered in Eureka server. In services (Ex- User and Department) we have to enable eureka client and in yaml file we need to set registered with eureka true because we want this service as a client and want to hit to Eureka Server.
+4) Circuit Breaker - Resiliance application used for circuit breaker -Example Added in Department services and default method automatically return the default value if department service down.
+5) Config Server - used to setup common properties file or taking reference from GIT Hub repo/local configuration based on keyword native and reference used in Department and user services through spring-cloud-starter-config dependencies in pom.xml.
+6) ZipKin  - ZipKin Server downloaded and Reference added in pom.xml of User and Department services and this automatically added the services in zip console for logs tracing.- Trace id and span id-> trace id is per request and common in all services  but span id according to service and different in service call.
+
+
+Application Flow -  1) calling Department service from user services.
+2) We have used department service name instead of local host in user services class to call it through Rest Template but we need to make Rest template as Bean and reference added in UserServiceSpringApplication with load balanced (Load balancer help to balance the request independent of port).
+3) We have created config server and have setup the common configuration for user service and department services and reference called in user service and department service through spring-cloud-starter-config dependencies in pom.xml file.
+
+Sequence to execute the services
+1) Run zipkin server through cmd command
+2) Service Registry
+3) config server
+4) user service and department service
+5) GateWay Service
+
+Spring Boot with Miocroservices latest
+https://www.youtube.com/watch?v=HFl2dzhVuUo
+
+Old Spring Boot Micorservices
+https://www.youtube.com/watch?v=BnknNTN8icw
+https://www.youtube.com/watch?v=w0e2GAHC3Uc&t=939s
+https://www.youtube.com/watch?v=BnknNTN8icw
+upgrade project 
+https://www.youtube.com/watch?v=w0e2GAHC3Uc&t=939s
+
+
+Reference path of Docker
+https://zipkin.io/pages/quickstart
+
+https://www.youtube.com/watch?v=BnknNTN8icw
+https://www.youtube.com/watch?v=9AXAUlp3DBw
+https://www.youtube.com/watch?v=b6R4dElDtRc
+
+
+https://www.youtube.com/watch?v=XolV-pKjVyA
+https://www.youtube.com/watch?v=sthMcMrspCM
+https://www.youtube.com/watch?v=pUFGOngzJig
+
+http://localhost:8024/#queries
+http://localhost:8081/h2-console
+
+Important video how call Rest webservices instead of RestTemplaet and wblcient we have opton for Restclient
+https://www.geeksforgeeks.org/how-to-call-rest-services-with-webclient-in-spring-boot/
+https://www.youtube.com/watch?v=JnfXVGN0vtc
